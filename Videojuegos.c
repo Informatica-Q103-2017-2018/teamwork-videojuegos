@@ -8,6 +8,11 @@
 
 # include <stdio.h>
 
+void tresenralla ();
+
+void tresenrallaloop (char c [3][3]);
+
+
 int main(){
 	
 	int k, power;
@@ -33,4 +38,15 @@ int main(){
 
 }
 
+void tresenralla() {
+	
+	char c [3][3];
+	
+	
+	tresenrallaloop (c);		//Llama a todas las funciones elementales y hace un refresco de pantalla
+	
+}
 
+void tresenrallaloop (char c [3][3]){
+	
+}
