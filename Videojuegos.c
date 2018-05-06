@@ -48,5 +48,24 @@ void tresenralla() {
 }
 
 void tresenrallaloop (char c [3][3]){
+
+	
+	int n, i, j, k;
+	
+	do{
+		system ("cls");
+		
+		printf("\n\t\t\tTRES EN RALLA!!!!");
+		printf ("\nMenu:");
+		printf ("\n\n [1] Contra la maquina ");
+		printf ("\n [2] Dos Jugadores ");
+		
+		printf ("\n\nSelecciona un Modalidad de Juego: ");
+		scanf ("%i", &n);
+		
+	} while ( n != 1 && n !=2);
+	
 	
 }
+
+
