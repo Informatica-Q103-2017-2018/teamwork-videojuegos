@@ -12,7 +12,6 @@ void tresenralla ();
 
 void tresenrallaloop (char c [3][3]);
 
-
 int main(){
 	
 	int k, power;
@@ -41,14 +40,12 @@ int main(){
 void tresenralla() {
 	
 	char c [3][3];
-	
-	
+		
 	tresenrallaloop (c);		//Llama a todas las funciones elementales y hace un refresco de pantalla
 	
 }
 
 void tresenrallaloop (char c [3][3]){
-
 	
 	int n, i, j, k;
 	
@@ -64,8 +61,34 @@ void tresenrallaloop (char c [3][3]){
 		scanf ("%i", &n);
 		
 	} while ( n != 1 && n !=2);
+
+	if ( n == 1 ) {
+		do {
 	
-	
+			i = 0;
+			
+			comienzo ();    					//Creacion funcion comienzo
+				
+			intro_primera (c);					//Creacion funcion intro_primera
+
+			do {
+				system ("cls");					//Esto borra todo lo que hay en pantalla ("clear")
+				tablero (c);					//Creacion funcion tablero
+		
+				if ( i % 2 == 0) {
+					jugador1(c);				//Creacion funcion jugador1
+				}
+		
+				else {
+					intro_IA (c);				//Creacion funcion intro_IA    "inteligencia artificial"  juega la maquina
+				}
+		
+				j = ganador (c);				//Creacion funcion ganador
+				i++;
+		
+			} while ( i <= 9 && j == 2);
+		}
+	}	
 }
 
 
