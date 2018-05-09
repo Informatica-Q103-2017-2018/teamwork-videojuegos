@@ -9,8 +9,10 @@
 # include <stdio.h>
 
 void tresenralla ();
-
 void tresenrallaloop (char c [3][3]);
+void intro_primera (char c[3][3]);
+void tablero (char c [3][3]);
+
 
 int main(){
 	
@@ -91,4 +93,51 @@ void tresenrallaloop (char c [3][3]){
 	}	
 }
 
+
+void intro_primera (char c[3][3]) {
+	
+	int i, j;
+	char aux;
+	
+	aux = '1';
+	
+	for ( i = 0; i < 3; i++) {
+		for ( j = 0; j < 3; j++) {
+			c[i][j] = aux++;
+		}
+	}
+}
+
+
+void tablero (char c [3][3]) {
+	
+	int i, j;
+	
+	printf ("\n");
+	
+	for ( i = 0; i < 3; i++) {
+		for ( j = 0; j < 3; j++) {
+			
+			if ( j < 1 ){
+				printf ("\t\t\t\t\t\t\t");
+			}
+			
+			if ( j < 2 ){
+				printf (" %c |", c[i][j]);
+			}
+			
+			else {
+				printf (" %c ", c[i][j]);
+			}
+		}
+		
+		if ( i < 2 ) {
+			printf ("\n\t\t\t\t\t\t\t-----------\n");
+		}
+		
+		else {
+			printf ("\n\n");
+		}
+	}
+}
 
