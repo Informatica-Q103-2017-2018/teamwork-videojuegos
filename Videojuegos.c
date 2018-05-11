@@ -10,6 +10,7 @@
 
 void tresenralla ();
 void tresenrallaloop (char c [3][3]);
+void comienzo();
 void intro_primera (char c[3][3]);
 void tablero (char c [3][3]);
 
@@ -69,16 +70,16 @@ void tresenrallaloop (char c [3][3]){
 	
 			i = 0;
 			
-			comienzo ();    					//Creacion funcion comienzo
+			comienzo ();    					
 				
-			intro_primera (c);					//Creacion funcion intro_primera
+			intro_primera (c);					
 
 			do {
 				system ("cls");					//Esto borra todo lo que hay en pantalla ("clear")
-				tablero (c);					//Creacion funcion tablero
+				tablero (c);					
 		
 				if ( i % 2 == 0) {
-					jugador1(c);				//Creacion funcion jugador1
+					jugador1(c);				
 				}
 		
 				else {
@@ -140,4 +141,40 @@ void tablero (char c [3][3]) {
 		}
 	}
 }
+
+void comienzo() {
+	
+	char campo[V][H];
+	int i, j, k;
+	int posicion[2];
+	
+	posicion [1] = 2;
+	posicion [0] = 39;
+
+	for ( k = 3; k > 0; k--){
+	
+		system ("cls"); 
+		for ( i = 0; i < V; i++) {
+			for ( j = 0; j < H; j++) {
+				campo[i][j] = ' ';
+			}
+		} 
+		
+		// Cuenta atrás  
+		
+		drawnumber ( campo, posicion, k); 			//Crear funcion drawnumber
+		
+		for ( i = 0; i < V; i++) {
+			for ( j = 0; j < H ; j++) {
+				printf ("%c", campo[i][j]);
+			}
+			printf ("\n");
+		}
+		
+			Sleep ( 1000 );			
+	
+	}
+	
+}
+
 
