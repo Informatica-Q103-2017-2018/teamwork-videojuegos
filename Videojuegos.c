@@ -90,10 +90,33 @@ void tresenrallaloop (char c [3][3]){
 				i++;
 		
 			} while ( i <= 9 && j == 2);
-		}
-	}	
-}
+				
+			system ("cls");				
+			tablero (c);
+		
+			if ( j == 0){
+				printf ("Enhorabuena!! Han Ganado las X !!!\n\n");
+			}
+	
+			else if ( j == 1 ){
+				printf ("Enhorabuena!! Han Ganado las O !!!\n\n");
+			}
+		
+			else {
+				printf ("Habeis empetado!! Intentalo de nuevo!!\n\n");
+			}
+			
+			printf ("Presione 1 para comenzar otra partida, cualquier otro para terminar: ");
+			scanf ("%i", &k);
+			
+		} while ( k == 1);
+	}
+	
+	printf ("\n\nEl Juego ha terminado\n\n");
 
+	// if(n == 2)    hacer luego
+	
+}
 
 void intro_primera (char c[3][3]) {
 	
