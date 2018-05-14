@@ -7,13 +7,15 @@
 */
 
 # include <stdio.h>
+# include <windows.h>
+# include <time.h>
 
 void tresenralla ();
 void tresenrallaloop (char c [3][3]);
 void comienzo();
 void intro_primera (char c[3][3]);
 void tablero (char c [3][3]);
-
+void intro_IA (char c [3][3]);
 
 int main(){
 	
@@ -83,7 +85,7 @@ void tresenrallaloop (char c [3][3]){
 				}
 		
 				else {
-					intro_IA (c);				//Creacion funcion intro_IA    "inteligencia artificial"  juega la maquina
+					intro_IA (c);				//"inteligencia artificial"  juega la maquina
 				}
 		
 				j = ganador (c);				//Creacion funcion ganador
@@ -198,6 +200,27 @@ void comienzo() {
 	
 	}
 	
+}
+
+void intro_IA (char c [3][3]) {
+	
+	int i, j, k;
+	
+	srand (time(NULL));
+	
+	do {
+		
+		i = rand() % 3;
+		j = rand () % 3;
+		k = 0;
+		
+		if ( c[i][j] == 'X' || c[i][j] == 'O') {
+			k = 1;
+		}
+	} while (k == 1);
+	
+	c[i][j] = 'O';
+
 }
 
 
