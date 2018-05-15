@@ -113,10 +113,55 @@ void tresenrallaloop (char c [3][3]){
 			
 		} while ( k == 1);
 	}
-	
-	printf ("\n\nEl Juego ha terminado\n\n");
 
-	// if(n == 2)    hacer luego
+	if ( n == 2) {
+		do {
+	
+			i = 0;
+			
+			comienzo ();
+	
+			intro_primera (c);
+
+			do {
+				system ("cls");					//Esto borra todo lo que hay en pantalla ("clear")
+				tablero (c);
+			
+				if ( i % 2 == 0) {
+					jugador1(c);
+				}
+			
+				else {
+					jugador2(c);
+				}
+			
+				j = ganador (c);
+				i++;
+			
+			} while ( i < 9 && j == 2);
+	
+			system ("cls");				
+			tablero (c);
+		
+			if ( j == 0){
+				printf ("Enhorabuena!! Han Ganado las X !!!\n\n");
+			}
+	
+			else if ( j == 1 ){
+				printf ("Enhorabuena!! Han Ganado las O !!!\n\n");
+			}
+		
+			else {
+				printf ("Habeis empetado!! Intentalo de nuevo!!\n\n");
+			}
+			
+			printf ("Presione 1 para comenzar otra partida, cualquier otro para terminar: ");
+			scanf ("%i", &k);
+			
+		} while ( k == 1);
+	}
+
+	printf ("\n\nEl Juego ha terminado\n\n");
 	
 }
 
