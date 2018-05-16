@@ -31,7 +31,11 @@ void raqjug2 ( char campo[V][H], int inijug2, int finjug2);
 void pel ( char campo[V][H], int pelX, int pelY);
 void draw ( char campo[V][H]);
 void ponginput ( char campo[V][H],  int *pelX, int *pelY, int *inijug, int *finjug, int *iniia, int *finia,int *modX,int *modY,int *modia, int *gol1, int *gol2, int *k);
+void cuentatras (); //FUNCION CONTADOR. PERMITE QUE APAREZCA 3,2,1.. ANTES DE CADA JUEGO. ES UNA FUNCION COMUN A TODOS LOS JUEGOS
+//AÑADIR FUNCIONES RESTANTES
+//FIN DE PROTOTIPOS FUNCIONES DEL PONG
 
+//FUNCION PRINCIPAL
 int main(){
 	
 	int k, power;
@@ -46,7 +50,7 @@ int main(){
 			scanf ("%i", &k);
 		}while ( k < 1 || k > 4);
 	
-	switch ( k ){
+	switch ( k ){ //PERMITE ELEGIR EL JUEGO QUE QUERAMOS
 		case 1: tresenralla (); break;
 		case 2: snake (); break;
 		case 3: pong (); break;
@@ -57,6 +61,7 @@ int main(){
 
 }
 
+//JUEGO DEL TRES EN RAYA
 void tresenralla() {
 	
 	char c [3][3];
