@@ -32,7 +32,12 @@ void pel ( char campo[V][H], int pelX, int pelY);
 void draw ( char campo[V][H]);
 void ponginput ( char campo[V][H],  int *pelX, int *pelY, int *inijug, int *finjug, int *iniia, int *finia,int *modX,int *modY,int *modia, int *gol1, int *gol2, int *k);
 void cuentatras (); //FUNCION CONTADOR. PERMITE QUE APAREZCA 3,2,1.. ANTES DE CADA JUEGO. ES UNA FUNCION COMUN A TODOS LOS JUEGOS
-//AÑADIR FUNCIONES RESTANTES
+void ponginput2 ( char campo[V][H],  int *pelX, int *pelY, int *inijug, int *finjug, int *inijug2, int *finjug2, int *modX, int *modY, int *gol1, int *gol2, int *k);
+void pongupdate (char campo[V][H], int pelX, int pelY, int inijug, int finjug, int iniia, int finia, int gol1, int gol2);
+int pongloop ( char campo[V][H], int pelX, int pelY, int inijug, int finjug, int iniia, int finia, int modX, int modY, int modia );
+int pongloop2 ( char campo[V][H], int pelX, int pelY, int inijug, int finjug, int inijug2, int finjug2, int modX, int modY );
+void marcador ( char campo[V][H], int gol1, int gol2 );
+void drawnumber (char campo[V][H], int posicion [2], int numero );
 //FIN DE PROTOTIPOS FUNCIONES DEL PONG
 
 //FUNCION PRINCIPAL
@@ -917,5 +922,221 @@ void ponginput ( char campo[V][H],  int *pelX, int *pelY, int *inijug, int *finj
 				}
 			}
 		}
+	
+}
+void ponginput2 ( char campo[V][H],  int *pelX, int *pelY, int *inijug, int *finjug, int *inijug2, int *finjug2, int *modX, int *modY, int *gol1, int *gol2, int *k){
+	
+	int i, n, m;
+	char key;
+	//Verificación
+	
+			
+		if  ( *pelY == 1 || *pelY == V - 2 ) {
+		
+			*modY *= -1;
+		}
+	
+		if ( *pelX == 1 ){
+			
+			*gol2 += 1;
+			*k = 1;
+		}
+		
+		if ( *pelX == H - 2 ){
+			
+			*gol1 += 1;
+			*k = 1;
+		}
+				
+		if ( *pelX == 4 ){
+			for ( i = (*inijug); i <= (*finjug); i++) {
+				if ( i == (*pelY)) {
+					*modX *= -1;
+				}
+			}
+		}
+		
+		if ( *pelX == H - 5 ){
+			for ( i = (*inijug2); i <= (*finjug2 ); i++) {
+				if ( i == (*pelY)) {
+					*modX *= -1;
+				}
+			}
+		}
+
+		
+	//Modificación
+	
+	
+		// Pelota
+		*pelX += ( *modX);
+		*pelY += ( *modY);
+		
+		// Raqueta Jugadores:
+		
+		n = 0;
+		m = 0;
+		
+		for ( i = 0; i < 20; i++) {
+			if ( kbhit() == 1) {  		//kbhit es un funcion que obtiene el valor uno cuando se toca una tecla y 0 cuadno no
+				key = getch() ; 		//getch es lo mismo que scanf solo que no hay que pulsar intro 
+				
+				if ( key == 'w'){n = 1;}
+				if ( key == 's'){n = 2;}
+				if ( key == 'o'){m = 1;}
+				if ( key == 'l'){m = 2;}
+			}
+		}
+			if ( n == 1) {
+				if (*inijug != 1 ) {
+					*inijug += -1;
+					*finjug += -1;
+				}
+			}
+			if ( n == 2 ) {
+				if(*finjug != V-2 ){
+					*inijug += 1;
+					*finjug += 1;
+				}
+			}
+			if ( m == 1 ) {
+				if (*inijug2 != 1 ) {
+					*inijug2 += -1;
+					*finjug2 += -1;
+				}
+			}
+			
+			if ( m == 2) {
+				if(*finjug2 != V-2 ){
+					*inijug2 += 1;
+					*finjug2 += 1;
+				}
+			}
+		
+	
+}
+
+void pongupdate (char campo[V][H], int pelX, int pelY, int inijug, int finjug, int iniia, int finia, int gol1, int gol2 ){
+	
+	pongborde (campo, gol1, gol2);
+	raqjug (campo, inijug, finjug);
+	raqjug2 ( campo, iniia, finia );
+	pel ( campo, pelX, pelY);
+	
+}
+
+void marcador ( char campo[V][H], int gol1, int gol2){
+	
+	int i;
+	int posicion [2];
+	
+	// Marcador izquierda
+	
+	posicion [0] = 31;
+	posicion [1] = 3;
+	
+	drawnumber ( campo, posicion, gol1);
+	
+	// Marcador derecha
+	
+	posicion [0] = 46;
+	posicion [1] = 3;
+	
+	drawnumber ( campo, posicion, gol2);
+}
+
+void drawnumber (char campo[V][H],int posicion [2], int numero ) {
+	
+	int i, j;
+	                                                   
+	for ( i = -1; i < 3; i++) {
+		for ( j = 0; j < 3; j++){
+			campo[posicion [1]+ i][posicion [0]+ j] = ' ';
+		}
+	}
+	
+
+	switch ( numero ){
+			case 0: 
+				campo[posicion [1]][posicion [0]] = '|';	
+				campo[posicion [1] + 1][posicion [0]] = '|';		
+				 
+				campo[posicion [1]][posicion [0] + 2] = '|';	
+				campo[posicion [1] + 1][posicion [0] + 2] = '|';		
+	 	
+	 			campo[posicion [1]- 1][posicion [0] + 1] = '_';
+				campo[posicion [1] + 1][posicion[0] + 1] = '_'; break;
+			
+			case 1: 
+				campo[posicion [1]][posicion [0] + 1] = '|';	
+				campo[posicion [1] + 1][posicion [0] + 1] = '|';break;
+	 			
+	 		case 2:
+	 			campo[posicion [1]- 1][posicion [0] + 1] = '_';	
+	 			campo[posicion [1]][posicion [0] + 1] = '_';
+	 			campo[posicion [1]][posicion [0] + 2] = '_';
+	 			
+	 			campo[posicion [1] + 1][posicion [0] + 1] = '_';
+	 			campo[posicion[1] + 1][posicion[0]]= '_';
+	 			
+	 			campo[posicion [1] + 1][posicion [0]] = '|';
+				campo[posicion [1]][posicion [0]+ 2] = '|';	break;	
+	 			
+	 			
+	 		
+	 		case 3:
+				campo[posicion [1]][posicion [0] + 2] = '|';	
+				campo[posicion [1] + 1][posicion [0] + 2] = '|';		
+	 	
+	 			campo[posicion [1]- 1][posicion [0] + 1] = '_';
+	 			campo[posicion [1]][posicion [0] + 1] = '_';
+				campo[posicion [1] + 1][posicion[0] + 1] = '_'; break;		
+			
+			case 4:
+				
+				campo[posicion [1]][posicion [0]] = '|';		
+				 
+				campo[posicion [1]][posicion [0] + 2] = '|';	
+				campo[posicion [1] + 1][posicion [0] + 2] = '|';		
+				 
+				campo[posicion [1]][posicion[0] + 1] = '_'; break;	
+			
+			case 5: 
+				campo[posicion [1]][posicion [0]] = '|';	
+				campo[posicion [1] + 1][posicion [0] + 2] = '|';		
+	 	
+	 			campo[posicion [1] - 1][posicion [0] + 1] = '_';
+	 			campo[posicion [1]][posicion[0] + 1] = '_';
+				campo[posicion [1] + 1][posicion[0] + 1] = '_'; break;
+					
+		}	
+}
+
+void cuentatras() {
+	
+	char campo[V][H];
+	int i, j, k;
+	int posicion[2];
+	
+	posicion [1] = 9;
+	posicion [0] = 37;
+	
+
+	for ( k = 3; k > 0; k--){
+	
+	system ("cls"); 
+	for ( i = 0; i < V; i++) {
+		for ( j = 0; j < H; j++) {
+				campo[i][j] = ' ';
+			}
+		} 
+	
+	drawnumber ( campo, posicion, k); 
+	
+	draw ( campo );
+	
+		Sleep ( 500 );
+	
+	}
 	
 }
