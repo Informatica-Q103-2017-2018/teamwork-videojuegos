@@ -1,8 +1,8 @@
-/*				Trabajo Final de Inform·tica
+/*				Trabajo Final de Inform√°tica
 				Creadores:
 					Javier Tudanca Vincueria
-					Pablo LÛpez Reyes
-					¡lvaro PÈrez GarcÌa
+					Pablo L√≥pez Reyes
+					√Ålvaro P√©rez Garc√≠a
 					Manuel Alejandro Taboada da Silva
 */
 
@@ -230,7 +230,7 @@ void comienzo() {
 			}
 		} 
 		
-		// Cuenta atr·s  
+		// Cuenta atr√°s  
 		
 		drawnumber ( campo, posicion, k); 			//Crear funcion drawnumber
 		
@@ -267,5 +267,5 @@ void intro_IA (char c [3][3]) {
 	c[i][j] = 'O';
 
 }
-
+%% PROBANDO QUE SE REALIZAN LOS CAMBIOS Y APARECE EN EL SISTEMA
 
