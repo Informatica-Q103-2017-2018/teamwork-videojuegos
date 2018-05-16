@@ -267,5 +267,4 @@ void intro_IA (char c [3][3]) {
 	c[i][j] = 'O';
 
 }
-%% PROBANDO QUE SE REALIZAN LOS CAMBIOS Y APARECE EN EL SISTEMA
 
