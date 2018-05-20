@@ -9,6 +9,9 @@
 # include <stdio.h>
 # include <windows.h>
 # include <time.h>
+# define V 21	       //CONSTANTES QUE DEFINEN EL ALTO Y EL ANCHO DEL CAMPO DE JUEGO EN EL SNAKE Y EL PONG					
+# define H 75
+
 
 //PROTOTIPOS FUNCIONES TRES EN RAYA
 void tresenralla ();
@@ -24,6 +27,7 @@ int ganador ( char c[3][3]);
 
 //PROTOTIPOS FUNCIONES PONG
 void pong ();
+int menu ();
 void ponginicio (char campo[V][H], int pelX, int pelY, int inijug, int finjug, int iniia, int finia);
 void pongborde ( char campo [V][H], int gol1, int gol2 );
 void raqjug ( char campo[V][H], int inijug, int finjug);
@@ -39,6 +43,20 @@ int pongloop2 ( char campo[V][H], int pelX, int pelY, int inijug, int finjug, in
 void marcador ( char campo[V][H], int gol1, int gol2 );
 void drawnumber (char campo[V][H], int posicion [2], int numero );
 //FIN DE PROTOTIPOS FUNCIONES DEL PONG
+
+//PROTOTIPOS FUNCIONES SNAKE
+void snake ();
+void snakeinicio ( char campo [V][H], int manz[2], char *direccion);
+void cuentatras();
+void drawnumber (char campo[V][H],int posicion [2], int numero );
+void draw ( char campo[V][H]);
+void snakeborde ( char campo[V][H]);
+int snakeloop ( char campo[V][H], int size, int manz [2], char direccion);
+int snakeinput ( char campo[V][H], int cabeza [2], int huella [1387], int manz[2], int *size , int *num, char *direccion, char *aux, char *aux2);
+void cola ( char campo[V][H], int cabeza [2], int huella [1387], int *size, int *num);
+void snakeupdate ( char campo[V][H], int cabeza [2], int huella [1387], int manz[2], int *size, int *num);
+void manzana ( char campo[V][H], int  manz [2]);
+//FIN DE PROTOTIPOS FUNCIONES SNAKE
 
 //FUNCION PRINCIPAL
 int main(){
@@ -1136,7 +1154,186 @@ void cuentatras() {
 	draw ( campo );
 	
 		Sleep ( 500 );
-	
 	}
 	
+}
+
+// JUEGO SANKE
+
+void snake () {
+	
+	char campo [V][H], direccion, k;
+	int manz [2];
+	int size;
+	
+	system("cls");
+
+	printf ("\n                               SNAKE !!!");
+	printf ("\n\n Presione W para subir, S para Bajar, A para girar a la izquierda y D para girar a la derecha\n\n");
+	system ("pause");	
+	
+	do {
+		
+		k = 0;
+		size = 1;
+		
+		system ("cls");
+		cuentatras ();
+		
+		snakeinicio ( campo, manz, &direccion); 
+		k = snakeloop ( campo, size, manz, direccion);
+	}while( k == 1 );	
+		
+}
+
+void snakeinicio ( char campo [V][H], int manz[2], char *direccion) {
+	
+	int i, j;
+	
+	snakeborde ( campo );
+	
+	campo[10][36] = 'X';
+	manzana ( campo, manz );
+	draw ( campo );
+
+	do {
+		*direccion = getch();
+	}while ( *direccion != 'w' && *direccion != 's' && *direccion != 'a' && *direccion != 'd');
+
+}
+
+void snakeborde ( char campo[V][H]){
+	
+	int i, j;
+	
+	for ( i = 0; i < V; i++) {
+		for ( j = 0; j < H; j++) {
+			
+			if ( i == 0 || i == V-1 ) {
+				campo[i][j] = '#';
+			}
+			
+			else if ( j == 0 || j == H-1 ){
+				campo[i][j] = '#';
+			}
+			
+			else {
+				campo[i][j] = ' ';
+			}
+		}
+	}
+	
+}
+
+int snakeloop ( char campo[V][H], int size, int manz [2], char direccion){
+	
+	int cabeza [2], huella [1500], num, control;
+	char aux, aux2, k;
+	
+	k = 1;
+	control = 0;
+	num = 0;
+	cabeza [0] = 36;
+	cabeza [1] = 10;
+
+	do {
+				draw (campo);																							//Dibujar en Pantalla
+				control = snakeinput ( campo, cabeza, huella, manz, &size, &num, &direccion, &aux, &aux2);				//Verificar y modificar las posiciones
+				snakeupdate ( campo, cabeza, huella, manz, &size, &num );												//Actualizar la martiz campo
+				if ( control == 2 ){ control = 0; size += 1;}									
+				Sleep (50);
+			
+		}while ( control == 0 );
+	
+	system ("cls");
+	printf ("\n\n		         	PUNTUACION = %i", size);
+	printf ("\n\n     Pulsa 1 para jugar otra partida, culquier otra tecla para terminar ....");
+	k = 0;
+	scanf ("%i", &k);
+	
+	if ( k == 1 ){return 1;}
+	else {return 0;}
+}
+
+int snakeinput ( char campo[V][H], int cabeza [2], int huella [1500], int manz[2], int *size , int *num, char *direccion, char *aux, char *aux2){
+	
+	int  i, j, n, m;
+	
+	//Movimiento de la cabeza
+	  
+	if ( kbhit() == 1) {  	
+		*direccion = getch();
+	}
+	
+	if ( *aux == *direccion ){*direccion = *aux2;}
+	else if ( *direccion != 'w' && *direccion != 's' && *direccion != 'a' && *direccion != 'd'){*direccion = *aux2;}
+	
+	switch ( *direccion ){
+			case 'w': cabeza[1] -= 1; *aux = 's'; *aux2 = 'w';break;
+			case 's': cabeza[1] += 1; *aux = 'w'; *aux2 = 's';break;
+		 	case 'd': cabeza[0] += 1; *aux = 'a'; *aux2 = 'd';break;	
+		 	case 'a': cabeza[0] -= 1; *aux = 'd'; *aux2 = 'a';break;
+		}
+	
+	//Comprobacion de morderse
+	i = *num;
+	j = 1;
+	
+	for ( j = 1; j < *size; j++){
+		
+		n = huella[i]/H +1;
+		m = huella[i]%H;
+		i -= 1;
+
+		if ( n == cabeza [1] && m == cabeza [0]){return 1;}
+	}
+	//Comprobacion de salirse
+	if ( cabeza[1] == V-1 || cabeza[1] == 0 || cabeza[0] == H-1 || cabeza[0] == 0){return 1;}
+	//Comprobacion de comer la manzana
+	if ( cabeza [1] == manz[0] && cabeza[0] == manz[1]){ manzana(  campo, manz ); return 2; }
+	
+	return 0;
+}
+
+void cola ( char campo[V][H], int cabeza [2], int huella [1500], int *size, int *num){
+	
+	int i, j, n, m;
+	
+	huella [*num] = cabeza[0] + (cabeza[1] - 1)*H;
+	
+	i = *num;
+	j = 1;
+	
+	for ( j = 1; j <= *size; j++){
+		
+		n = huella[i]/H +1;
+		m = huella[i]%H;
+
+		campo [n][m] = 'X';
+		i -= 1;
+	}
+ 	*num += 1; 
+}
+
+void snakeupdate ( char campo[V][H], int cabeza [2], int huella [1500], int manz[2], int *size, int *num){
+	
+	snakeborde ( campo );
+	cola ( campo, cabeza, huella, &*size, &*num);
+	campo [manz[0]][manz[1]] = 'O';
+}
+
+void manzana ( char campo[V][H], int  manz [2]){
+	int i, j, k = 0;
+	
+	i = 0;
+	j = 0;
+	
+	do {
+				srand (time(NULL));
+	
+				i = rand() % (V - 2);
+				j = rand () % (H - 2);		
+		if ( campo[i][j] = ' ')	{ campo[i+1][j+1] = 'O'; manz[0] = i+ 1; manz[1] = j + 1; k = 1;}
+		
+	}while( k == 0);
 }
