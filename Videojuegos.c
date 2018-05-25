@@ -63,7 +63,6 @@ int main(){
 	
 	int k, power;
 	
-	power = 1;
 	do {
 		do {
 			system("cls");
@@ -74,9 +73,9 @@ int main(){
 		}while ( k < 1 || k > 4);
 	
 	switch ( k ){ //PERMITE ELEGIR EL JUEGO QUE QUERAMOS
-		case 1: tresenralla (); break;
-		case 2: snake (); break;
-		case 3: pong (); break;
+		case 1: tresenralla (); power = 1; break;
+		case 2: snake (); power = 1; break;
+		case 3: pong (); power = 1; break;
 		case 4: power = 0; break;
 		}
 	}while ( power == 1);
