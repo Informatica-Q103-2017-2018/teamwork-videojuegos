@@ -61,7 +61,7 @@ void manzana ( char campo[V][H], int  manz [2]);
 //FUNCION PRINCIPAL
 int main(){
 	
-	int k, power;
+	int k, power = 1;
 	
 	do {
 		do {
@@ -73,10 +73,10 @@ int main(){
 		}while ( k < 1 || k > 4);
 	
 	switch ( k ){ //PERMITE ELEGIR EL JUEGO QUE QUERAMOS
-		case 1: tresenralla (); power = 1; break;
-		case 2: snake (); power = 1; break;
-		case 3: pong (); power = 1; break;
-		case 4: power = 0; break;
+		case 1: tresenralla (); break;
+		case 2: snake (); break;
+		case 3: pong (); break;
+		case 4: break;
 		}
 	}while ( power == 1);
 	return 0;
@@ -1289,9 +1289,9 @@ int snakeinput ( char campo[V][H], int cabeza [2], int huella [1500], int manz[2
 	//Comprobacion de salirse
 	if ( cabeza[1] == V-1 || cabeza[1] == 0 || cabeza[0] == H-1 || cabeza[0] == 0){return 1;}
 	//Comprobacion de comer la manzana
-	if ( cabeza [1] == manz[0] && cabeza[0] == manz[1]){ manzana(  campo, manz ); return 2; }
+	else if ( cabeza [1] == manz[0] && cabeza[0] == manz[1]){ manzana(  campo, manz ); return 2; }
 	
-	return 0;
+	else {return 0};
 }
 
 void cola ( char campo[V][H], int cabeza [2], int huella [1500], int *size, int *num){
