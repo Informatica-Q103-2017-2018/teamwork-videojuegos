@@ -1291,7 +1291,7 @@ int snakeinput ( char campo[V][H], int cabeza [2], int huella [1500], int manz[2
 	//Comprobacion de comer la manzana
 	else if ( cabeza [1] == manz[0] && cabeza[0] == manz[1]){ manzana(  campo, manz ); return 2; }
 	
-	else {return 0};
+	else {return 0;};
 }
 
 void cola ( char campo[V][H], int cabeza [2], int huella [1500], int *size, int *num){
