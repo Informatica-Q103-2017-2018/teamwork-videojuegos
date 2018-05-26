@@ -1,0 +1,11 @@
+Por si no fuera representativo el histórico de commits, hacemos una aclaración de qué ha realizado cada miembro del grupo.
+
+Javier Tudanca Vincueria: Ideador del trabajo  
+y de los pilares fundamentales de este. A nivel particular ha participado en los 3 videojuegos pero centrándose principalmente en
+el desarrollo del snake.
+
+Alvaro Pérez García: Desarrollador del juego '3 en raya' junto con Manuel Taboada.
+
+Pablo López Reyes: Desarrollador del juego 'Pong' junto con Manuel Taboada.
+
+Manuel Taboada da Silva: Desarrollador del 'Pong' junto con Pablo López y de algunas funciones del '3 en raya'
