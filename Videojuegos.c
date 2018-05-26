@@ -1,8 +1,8 @@
-/*				Trabajo Final de Informática
+/*				Trabajo Final de InformÃ¡tica
 				Creadores:
 					Javier Tudanca Vincueria
-					Pablo López Reyes
-					Álvaro Pérez García
+					Pablo LÃ³pez Reyes
+					Ãlvaro PÃ©rez GarcÃ­a
 					Manuel Alejandro Taboada da Silva
 */
 
@@ -76,7 +76,7 @@ int main(){
 		case 1: tresenralla (); break;
 		case 2: snake (); break;
 		case 3: pong (); break;
-		case 4: break;
+		case 4: power = 0; break;
 		}
 	}while ( power == 1);
 	return 0;
@@ -94,7 +94,8 @@ void tresenralla() {
 
 void tresenrallaloop (char c [3][3]){
 	
-	int n, i, j, k;
+	int n, i, j;
+	char k = '#';
 	
 	do{
 		system ("cls");
@@ -150,10 +151,10 @@ void tresenrallaloop (char c [3][3]){
 				printf ("Habeis empetado!! Intentalo de nuevo!!\n\n");
 			}
 			
-			printf ("Presione 1 para comenzar otra partida, cualquier otro para terminar: ");
-			scanf ("%i", &k);
+			printf ("Presione R para comenzar otra partida, cualquier otra tecla para terminar: ");
+			scanf ("%c", &k);
 			
-		} while ( k == 1);
+		} while ( k =='R' || k == 'r');
 	}
 
 	if ( n == 2) {
@@ -197,10 +198,10 @@ void tresenrallaloop (char c [3][3]){
 				printf ("Habeis empetado!! Intentalo de nuevo!!\n\n");
 			}
 			
-			printf ("Presione 1 para comenzar otra partida, cualquier otro para terminar: ");
-			scanf ("%i", &k);
+			printf ("Presione R para comenzar otra partida, cualquier otra tecla para terminar: ");
+			scanf ("%c", &k);
 			
-		} while ( k == 1);
+		} while ( k =='R' || k == 'r');
 	}
 
 	printf ("\n\nEl Juego ha terminado\n\n");
@@ -272,7 +273,7 @@ void comienzo() {
 			}
 		} 
 		
-		// Cuenta atrás  
+		// Cuenta atrÃ¡s  
 		
 		drawnumber ( campo, posicion, k); 			//Crear funcion drawnumber
 		
@@ -283,7 +284,7 @@ void comienzo() {
 			printf ("\n");
 		}
 		
-			Sleep ( 1000 );	   // Seg�n cada cpu este valor deber�a ser modificado		
+			Sleep ( 1000 );	   // Según cada cpu este valor debería ser modificado		
 	
 	}
 	
@@ -607,7 +608,7 @@ void pong () {
 	int modX, modY, modia;
 	char campo [V][H];
 	
-	//Varaibles de Posición
+	//Varaibles de PosiciÃ³n
 	pelX = 37;
 	pelY = 10;
 	
@@ -620,7 +621,7 @@ void pong () {
 	iniia = 3;
 	finia = 17;
 	
-	//Varaiables de Modificación
+	//Varaiables de ModificaciÃ³n
 	
 	modX = 1;
 	modY = 1;
@@ -774,7 +775,7 @@ int pongloop ( char campo[V][H], int pelX, int pelY, int inijug, int finjug, int
 			
 		}while ( k == 0 );
 		
-		//Varaibles de Posición
+		//Varaibles de PosiciÃ³n
 		pelX = 37;
 		pelY = 10;
 	
@@ -784,7 +785,7 @@ int pongloop ( char campo[V][H], int pelX, int pelY, int inijug, int finjug, int
 		iniia = 3;
 		finia = 17;
 	
-		//Varaiables de Modificación
+		//Varaiables de ModificaciÃ³n
 	
 		modX *= -1;
 		modY *= -1;
@@ -830,7 +831,7 @@ int pongloop2 ( char campo[V][H], int pelX, int pelY, int inijug, int finjug, in
 			
 		}while ( k == 0 );
 		
-		//Varaibles de Posición
+		//Varaibles de PosiciÃ³n
 		pelX = 37;
 		pelY = 10;
 	
@@ -840,7 +841,7 @@ int pongloop2 ( char campo[V][H], int pelX, int pelY, int inijug, int finjug, in
 		inijug2 = 8;
 		finjug2 = 12;
 	
-		//Varaiables de Modificación
+		//Varaiables de ModificaciÃ³n
 	
 		modX *= -1;
 		modY *= -1;
@@ -868,7 +869,7 @@ void ponginput ( char campo[V][H],  int *pelX, int *pelY, int *inijug, int *finj
 	
 	int i;
 	char key;
-	//Verificación
+	//VerificaciÃ³n
 	
 			
 		if  ( *pelY == 1 || *pelY == V - 2 ) {
@@ -905,7 +906,7 @@ void ponginput ( char campo[V][H],  int *pelX, int *pelY, int *inijug, int *finj
 		}
 
 		
-	//Modificación
+	//ModificaciÃ³n
 	
  		if ( *iniia == 1 || *finia == V - 2 ) {
 				*modia *= -1;
@@ -945,7 +946,7 @@ void ponginput2 ( char campo[V][H],  int *pelX, int *pelY, int *inijug, int *fin
 	
 	int i, n, m;
 	char key;
-	//Verificación
+	//VerificaciÃ³n
 	
 			
 		if  ( *pelY == 1 || *pelY == V - 2 ) {
@@ -982,7 +983,7 @@ void ponginput2 ( char campo[V][H],  int *pelX, int *pelY, int *inijug, int *fin
 		}
 
 		
-	//Modificación
+	//ModificaciÃ³n
 	
 	
 		// Pelota
@@ -1227,9 +1228,8 @@ void snakeborde ( char campo[V][H]){
 int snakeloop ( char campo[V][H], int size, int manz [2], char direccion){
 	
 	int cabeza [2], huella [1500], num, control;
-	char aux, aux2, k;
+	char aux, aux2, k = '#';
 	
-	k = 0;
 	control = 0;
 	num = 0;
 	cabeza [0] = 36;
@@ -1240,19 +1240,19 @@ int snakeloop ( char campo[V][H], int size, int manz [2], char direccion){
 				control = snakeinput ( campo, cabeza, huella, manz, &size, &num, &direccion, &aux, &aux2);				//Verificar y modificar las posiciones
 				snakeupdate ( campo, cabeza, huella, manz, &size, &num );												//Actualizar la martiz campo
 				if ( control == 2 ){ control = 0; size += 1;}									
-				Sleep (50);  //Seg�n la CPU de cada ordenador, este valor deber� mayor o menor
-				             // para que se adec�e a dicha velocidad
-				             // Tambi�n es v�lido aumentarlo para incrementar la dificultad
+				Sleep (50);  //Según la CPU de cada ordenador, este valor deberá mayor o menor
+				             // para que se adecúe a dicha velocidad
+				             // También es válido aumentarlo para incrementar la dificultad
 			
 		}while ( control == 0 );
 	
 	system ("cls");
 	printf ("\n\n		         	PUNTUACION = %i", size);
-	printf ("\n\n     Pulsa 1 para jugar otra partida, culquier otra tecla para terminar ....");
+	printf ("\n\n     Pulsa R para jugar otra partida, culquier otra tecla para terminar ....");
 	fflush(stdin);
-	scanf ("%i", &k);
+	scanf ("%c", &k);
 	
-	if ( k == 1 ){return 1;}
+	if ( k == 'r' || k == 'R' ){return 1;}
 	else {return 0;}
 }
 
