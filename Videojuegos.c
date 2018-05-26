@@ -757,7 +757,7 @@ void draw ( char campo[V][H]) {
 
 int pongloop ( char campo[V][H], int pelX, int pelY, int inijug, int finjug, int iniia, int finia, int modX, int modY, int modia ) {
 	
-	int gol1, gol2, k, n;
+	int gol1, gol2, k;
 	char n = '#';
 	gol1 = 0;
 	gol2 = 0;
