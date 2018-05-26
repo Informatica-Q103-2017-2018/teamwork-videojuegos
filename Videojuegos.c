@@ -1229,7 +1229,7 @@ int snakeloop ( char campo[V][H], int size, int manz [2], char direccion){
 	int cabeza [2], huella [1500], num, control;
 	char aux, aux2, k;
 	
-	k = 1;
+	k = 0;
 	control = 0;
 	num = 0;
 	cabeza [0] = 36;
@@ -1247,7 +1247,7 @@ int snakeloop ( char campo[V][H], int size, int manz [2], char direccion){
 	system ("cls");
 	printf ("\n\n		         	PUNTUACION = %i", size);
 	printf ("\n\n     Pulsa 1 para jugar otra partida, culquier otra tecla para terminar ....");
-	k = 0;
+	fflush(stdin);
 	scanf ("%i", &k);
 	
 	if ( k == 1 ){return 1;}
