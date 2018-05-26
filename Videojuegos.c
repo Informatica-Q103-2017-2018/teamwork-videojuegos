@@ -283,7 +283,7 @@ void comienzo() {
 			printf ("\n");
 		}
 		
-			Sleep ( 1000 );			
+			Sleep ( 1000 );	   // Según cada cpu este valor debería ser modificado		
 	
 	}
 	
@@ -770,7 +770,7 @@ int pongloop ( char campo[V][H], int pelX, int pelY, int inijug, int finjug, int
 				draw (campo);																								//Dibujar en Pantalla
 				ponginput ( campo, &pelX, &pelY, &inijug, &finjug, &iniia, &finia, &modX, &modY, &modia, &gol1, &gol2, &k);		//Verificar y modificar las posiciones
 				pongupdate ( campo, pelX, pelY, inijug, finjug, iniia, finia, gol1, gol2 );										//Actualizar la martiz campo
-				Sleep (25);
+				Sleep (25);  // Valor de sleep elegido para la cpu del programador
 			
 		}while ( k == 0 );
 		
@@ -1240,7 +1240,9 @@ int snakeloop ( char campo[V][H], int size, int manz [2], char direccion){
 				control = snakeinput ( campo, cabeza, huella, manz, &size, &num, &direccion, &aux, &aux2);				//Verificar y modificar las posiciones
 				snakeupdate ( campo, cabeza, huella, manz, &size, &num );												//Actualizar la martiz campo
 				if ( control == 2 ){ control = 0; size += 1;}									
-				Sleep (50);
+				Sleep (50);  //Según la CPU de cada ordenador, este valor deberá mayor o menor
+				             // para que se adecúe a dicha velocidad
+				             // También es válido aumentarlo para incrementar la dificultad
 			
 		}while ( control == 0 );
 	
