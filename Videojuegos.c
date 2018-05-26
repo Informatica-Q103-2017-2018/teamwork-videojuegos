@@ -758,6 +758,7 @@ void draw ( char campo[V][H]) {
 int pongloop ( char campo[V][H], int pelX, int pelY, int inijug, int finjug, int iniia, int finia, int modX, int modY, int modia ) {
 	
 	int gol1, gol2, k, n;
+	char n = '#';
 	gol1 = 0;
 	gol2 = 0;
 	
@@ -795,10 +796,10 @@ int pongloop ( char campo[V][H], int pelX, int pelY, int inijug, int finjug, int
 	system ("cls");
 	
 	if ( gol1 < gol2 ){
-		printf ("\n\n                      Has Perdido!!!\n\n Pulsa 1 para la Revancha, cualquier otra letra para continuar...");
-		scanf ("%i", &n);
+		printf ("\n\n                      Has Perdido!!!\n\n Pulsa R para la Revancha, cualquier otra letra para continuar...");
+		scanf ("%c", &n);
 		
-		if ( n == 1 ){return 0;}
+		if ( n =='R' || n == 'r' ){return 0;}
 		else { return 1;}
 	}
 	
@@ -848,18 +849,18 @@ int pongloop2 ( char campo[V][H], int pelX, int pelY, int inijug, int finjug, in
 	} while ( gol1 < 3 && gol2 < 3 );
 	system ("cls");
 	if ( gol1 < gol2 ){
-		printf ("\n\n                      Enhorabuena Jugador 2!!! Has Ganado!!\n\n Pulsa 1 para la Revancha, cualquier otra letra para continuar...");
-		scanf ("%i", &n);
+		printf ("\n\n                      Enhorabuena Jugador 2!!! Has Ganado!!\n\n Pulsa R para la Revancha, cualquier otra letra para continuar...");
+		scanf ("%c", &n);
 		
-		if ( n == 1 ){ return 0; }
+		if ( n =='R' || n == 'r' ){ return 0; }
 		else { return 1;}
 	}
 	
 	else {
-		printf ("\n\n                      Enhorabuena Jugador 1!!! Has Ganado!!\n\n Pulsa 1 para la Revancha, cualquier otra letra para continuar...");
-		scanf ("%i", &n);
+		printf ("\n\n                      Enhorabuena Jugador 1!!! Has Ganado!!\n\n Pulsa R para la Revancha, cualquier otra letra para continuar...");
+		scanf ("%c", &n);
 		
-		if ( n == 1 ){ return 0;}
+		if ( n =='R' || n == 'r' ){ return 0;}
 		else { return 1;}
 	}
 
