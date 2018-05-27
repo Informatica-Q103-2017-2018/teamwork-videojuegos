@@ -1,15 +1,19 @@
                                                      CREDITOS
                                                      
-JAVIER TUDANCA VINCUERIA: 
+  JAVIER TUDANCA VINCUERIA: 
+  
 Ideador del trabajo y consigo de los principales fundamentos de este. A nivel particular ha contribuido en la
 creacion de los tres videojuegos, centradose en el desarrollo del snake.
 
-ALVARO PEREZ GARCIA:
+  ALVARO PEREZ GARCIA:
+  
 Desarrollador en gran parte del juego 3 en Raya.
 
-PABLO LOPEZ REYES:
+  PABLO LOPEZ REYES:
+  
 Desarrollador en gran parte del juego Pong. 
 
-MANUEL TABOADA DA SILVA:
+  MANUEL TABOADA DA SILVA:
+  
 Asistente operativo en los juegos 3 en Raya y Pong.
 
