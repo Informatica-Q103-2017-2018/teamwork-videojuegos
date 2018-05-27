@@ -62,6 +62,7 @@ void manzana ( char campo[V][H], int  manz [2]);
 int main(){
 	
 	int k, power = 1;
+	char aux[100];
 	FILE *f;
 	
 	do {
@@ -81,15 +82,31 @@ int main(){
 		}
 	}while ( power == 1);
 	
+
 	// Abrimos fichero. Cada ordenador tendr· una ruta distinta
 	
 	f = fopen("C:\\Users\\Portatil\\Desktop\\videojuegos\\teamwork-videojuegos\\Creditos Videojuegos.txt","r");
 		if (f == NULL){
 			printf("No se ha podido abrir el fichero.\n");
 			exit(1);
-	
-	return 0;
 
+	system("cls");
+					// Cr√©ditos del Viedojuego
+	f = fopen("Creditos Videojuegos.txt","r");
+		
+	if (f == NULL){
+		printf("No se ha podido abrir el fichero.\n");
+		exit(1);
+	}
+
+	while (!feof(f)){             // feof(f) constesta a la pregunta si es el final del string
+		fgets(aux,100,f);
+		printf("%s", aux);
+	}
+	
+	fclose(f);
+	system ("pause");
+	return 0;
 }
 }
 //JUEGO DEL TRES EN RAYA
