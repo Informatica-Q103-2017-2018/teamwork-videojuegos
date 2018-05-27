@@ -62,6 +62,7 @@ void manzana ( char campo[V][H], int  manz [2]);
 int main(){
 	
 	int k, power = 1;
+	char aux;
 	FILE *f;
 	
 	do {
@@ -81,13 +82,24 @@ int main(){
 		}
 	}while ( power == 1);
 	
-	f = fopen("Creditos de Videojuegos.txt","r")
-		if (f == NULL){
-			printf("No se ha podido abrir el fichero.\n");
-			exit(1);
-	
-	return 0;
+	system(cls);
+					// Créditos del Viedojuego
+	f = fopen("Creditos Videojuegos.txt","r")
+		
+	if (f == NULL){
+		printf("No se ha podido abrir el fichero.\n");
+		exit(1);
+	}
 
+	while (!feof(f)){
+		fgets(aux,150,f);
+		printf("%s", aux);
+	}
+	
+	fclose(f);
+	
+	sustem (pause);
+	return 0;
 }
 
 //JUEGO DEL TRES EN RAYA
