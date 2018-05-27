@@ -1,8 +1,8 @@
-/*				Trabajo Final de InformÃ¡tica
+/*				Trabajo Final de InformÃƒÂ¡tica
 				Creadores:
 					Javier Tudanca Vincueria
-					Pablo LÃ³pez Reyes
-					Ãlvaro PÃ©rez GarcÃ­a
+					Pablo LÃƒÂ³pez Reyes
+					ÃƒÂlvaro PÃƒÂ©rez GarcÃƒÂ­a
 					Manuel Alejandro Taboada da Silva
 */
 
@@ -83,15 +83,15 @@ int main(){
 	}while ( power == 1);
 	
 
-	// Abrimos fichero. Cada ordenador tendr� una ruta distinta
+	// Abrimos fichero. Cada ordenador tendrá una ruta distinta
 	
-	f = fopen("C:\\Users\\Portatil\\Desktop\\videojuegos\\teamwork-videojuegos\\Creditos Videojuegos.txt","r");
+	f = fopen("Creditos Videojuegos.txt","r");
 		if (f == NULL){
 			printf("No se ha podido abrir el fichero.\n");
 			exit(1);
 
 	system("cls");
-					// Créditos del Viedojuego
+					// CrÃ©ditos del Viedojuego
 	f = fopen("Creditos Videojuegos.txt","r");
 		
 	if (f == NULL){
@@ -300,7 +300,7 @@ void comienzo() {
 			}
 		} 
 		
-		// Cuenta atrÃ¡s  
+		// Cuenta atrÃƒÂ¡s  
 		
 		drawnumber ( campo, posicion, k); 			//Crear funcion drawnumber
 		
@@ -311,7 +311,7 @@ void comienzo() {
 			printf ("\n");
 		}
 		
-			Sleep ( 1000 );	   // Según cada cpu este valor debería ser modificado		
+			Sleep ( 1000 );	   // SegÃºn cada cpu este valor deberÃ­a ser modificado		
 	
 	}
 	
@@ -635,7 +635,7 @@ void pong () {
 	int modX, modY, modia;
 	char campo [V][H];
 	
-	//Varaibles de PosiciÃ³n
+	//Varaibles de PosiciÃƒÂ³n
 	pelX = 37;
 	pelY = 10;
 	
@@ -648,7 +648,7 @@ void pong () {
 	iniia = 3;
 	finia = 17;
 	
-	//Varaiables de ModificaciÃ³n
+	//Varaiables de ModificaciÃƒÂ³n
 	
 	modX = 1;
 	modY = 1;
@@ -803,7 +803,7 @@ int pongloop ( char campo[V][H], int pelX, int pelY, int inijug, int finjug, int
 			
 		}while ( k == 0 );
 		
-		//Varaibles de PosiciÃ³n
+		//Varaibles de PosiciÃƒÂ³n
 		pelX = 37;
 		pelY = 10;
 	
@@ -813,7 +813,7 @@ int pongloop ( char campo[V][H], int pelX, int pelY, int inijug, int finjug, int
 		iniia = 3;
 		finia = 17;
 	
-		//Varaiables de ModificaciÃ³n
+		//Varaiables de ModificaciÃƒÂ³n
 	
 		modX *= -1;
 		modY *= -1;
@@ -859,7 +859,7 @@ int pongloop2 ( char campo[V][H], int pelX, int pelY, int inijug, int finjug, in
 			
 		}while ( k == 0 );
 		
-		//Varaibles de PosiciÃ³n
+		//Varaibles de PosiciÃƒÂ³n
 		pelX = 37;
 		pelY = 10;
 	
@@ -869,7 +869,7 @@ int pongloop2 ( char campo[V][H], int pelX, int pelY, int inijug, int finjug, in
 		inijug2 = 8;
 		finjug2 = 12;
 	
-		//Varaiables de ModificaciÃ³n
+		//Varaiables de ModificaciÃƒÂ³n
 	
 		modX *= -1;
 		modY *= -1;
@@ -897,7 +897,7 @@ void ponginput ( char campo[V][H],  int *pelX, int *pelY, int *inijug, int *finj
 	
 	int i;
 	char key;
-	//VerificaciÃ³n
+	//VerificaciÃƒÂ³n
 	
 			
 		if  ( *pelY == 1 || *pelY == V - 2 ) {
@@ -934,7 +934,7 @@ void ponginput ( char campo[V][H],  int *pelX, int *pelY, int *inijug, int *finj
 		}
 
 		
-	//ModificaciÃ³n
+	//ModificaciÃƒÂ³n
 	
  		if ( *iniia == 1 || *finia == V - 2 ) {
 				*modia *= -1;
@@ -974,7 +974,7 @@ void ponginput2 ( char campo[V][H],  int *pelX, int *pelY, int *inijug, int *fin
 	
 	int i, n, m;
 	char key;
-	//VerificaciÃ³n
+	//VerificaciÃƒÂ³n
 	
 			
 		if  ( *pelY == 1 || *pelY == V - 2 ) {
@@ -1011,7 +1011,7 @@ void ponginput2 ( char campo[V][H],  int *pelX, int *pelY, int *inijug, int *fin
 		}
 
 		
-	//ModificaciÃ³n
+	//ModificaciÃƒÂ³n
 	
 	
 		// Pelota
@@ -1268,9 +1268,9 @@ int snakeloop ( char campo[V][H], int size, int manz [2], char direccion){
 				control = snakeinput ( campo, cabeza, huella, manz, &size, &num, &direccion, &aux, &aux2);				//Verificar y modificar las posiciones
 				snakeupdate ( campo, cabeza, huella, manz, &size, &num );												//Actualizar la martiz campo
 				if ( control == 2 ){ control = 0; size += 1;}									
-				Sleep (50);  //Según la CPU de cada ordenador, este valor deberá mayor o menor
-				             // para que se adecúe a dicha velocidad
-				             // También es válido aumentarlo para incrementar la dificultad
+				Sleep (50);  //SegÃºn la CPU de cada ordenador, este valor deberÃ¡ mayor o menor
+				             // para que se adecÃºe a dicha velocidad
+				             // TambiÃ©n es vÃ¡lido aumentarlo para incrementar la dificultad
 			
 		}while ( control == 0 );
 	
