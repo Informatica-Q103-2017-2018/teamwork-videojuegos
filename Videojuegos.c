@@ -62,6 +62,7 @@ void manzana ( char campo[V][H], int  manz [2]);
 int main(){
 	
 	int k, power = 1;
+	FILE *f;
 	
 	do {
 		do {
@@ -79,6 +80,12 @@ int main(){
 		case 4: power = 0; break;
 		}
 	}while ( power == 1);
+	
+	f = fopen("Creditos de Videojuegos.txt","r")
+		if (f == NULL){
+			printf("No se ha podido abrir el fichero.\n");
+			exit(1);
+	
 	return 0;
 
 }
