@@ -104,6 +104,7 @@ int main(){
 		printf("%s", aux);
 	}
 	
+	printf("\n\n\n");
 	fclose(f);
 	system ("pause");
 	return 0;
