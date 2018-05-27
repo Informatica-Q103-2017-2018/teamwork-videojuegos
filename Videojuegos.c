@@ -62,7 +62,7 @@ void manzana ( char campo[V][H], int  manz [2]);
 int main(){
 	
 	int k, power = 1;
-	char aux;
+	char aux[100];
 	FILE *f;
 	
 	do {
@@ -82,9 +82,9 @@ int main(){
 		}
 	}while ( power == 1);
 	
-	system(cls);
+	system("cls");
 					// Créditos del Viedojuego
-	f = fopen("Creditos Videojuegos.txt","r")
+	f = fopen("Creditos Videojuegos.txt","r");
 		
 	if (f == NULL){
 		printf("No se ha podido abrir el fichero.\n");
@@ -92,13 +92,13 @@ int main(){
 	}
 
 	while (!feof(f)){             // feof(f) constesta a la pregunta si es el final del string
-		fgets(aux,150,f);
+		fgets(aux,100,f);
 		printf("%s", aux);
 	}
 	
 	fclose(f);
 	
-	sustem (pause);
+	system ("pause");
 	return 0;
 }
 
