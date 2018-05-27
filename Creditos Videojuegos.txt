@@ -2,7 +2,7 @@
                                                      
 JAVIER TUDANCA VINCUERIA: 
 Ideador del trabajo y consigo de los principales fundamentos de este. A nivel particular ha contribuido en la
-creacion de los tres videos juegos, centradose en el desarrollo del snake.
+creacion de los tres videojuegos, centradose en el desarrollo del snake.
 
 ALVARO PEREZ GARCIA:
 Desarrollador en gran parte del juego 3 en Raya.
