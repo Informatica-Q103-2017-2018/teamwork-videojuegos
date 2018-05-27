@@ -91,7 +91,7 @@ int main(){
 		exit(1);
 	}
 
-	while (!feof(f)){
+	while (!feof(f)){             // feof(f) constesta a la pregunta si es el final del string
 		fgets(aux,150,f);
 		printf("%s", aux);
 	}
