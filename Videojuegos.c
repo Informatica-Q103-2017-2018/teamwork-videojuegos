@@ -83,15 +83,10 @@ int main(){
 	}while ( power == 1);
 	
 
-	// Abrimos fichero. Cada ordenador tendrá una ruta distinta
-	
-	f = fopen("Creditos Videojuegos.txt","r");
-		if (f == NULL){
-			printf("No se ha podido abrir el fichero.\n");
-			exit(1);
+	// Creditos. Es necesario adjuntar el archivo Creditos Videojuegos.txt en la misma carpeta.
 
 	system("cls");
-					// CrÃ©ditos del Viedojuego
+			
 	f = fopen("Creditos Videojuegos.txt","r");
 		
 	if (f == NULL){
