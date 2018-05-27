@@ -81,7 +81,9 @@ int main(){
 		}
 	}while ( power == 1);
 	
-	f = fopen("Creditos de Videojuegos.txt","r")
+	// Abrimos fichero. Cada ordenador tendrá una ruta distinta
+	
+	f = fopen("C:\\Users\\Portatil\\Desktop\\videojuegos\\teamwork-videojuegos\\Creditos Videojuegos.txt","r");
 		if (f == NULL){
 			printf("No se ha podido abrir el fichero.\n");
 			exit(1);
@@ -89,7 +91,7 @@ int main(){
 	return 0;
 
 }
-
+}
 //JUEGO DEL TRES EN RAYA
 void tresenralla() {
 	
@@ -1332,17 +1334,22 @@ void snakeupdate ( char campo[V][H], int cabeza [2], int huella [1500], int manz
 }
 
 void manzana ( char campo[V][H], int  manz [2]){
-	int i, j, k = 0;
-	
-	i = 0;
-	j = 0;
+	int i = 0, j = 0, k = 0;
 	
 	do {
-				srand (time(NULL));
-	
-				i = rand() % (V - 2);
-				j = rand () % (H - 2);		
-		if ( campo[i][j] = ' ')	{ campo[i+1][j+1] = 'O'; manz[0] = i+ 1; manz[1] = j + 1; k = 1;}
-		
+		srand (time(NULL));
+		i = rand() % (V - 2);
+		j = rand () % (H - 2);		
+		if ( campo[i][j] = ' '){ 
+			campo[i+1][j+1] = 'O'; 
+			manz[0] = i + 1; 
+			manz[1] = j + 1; 
+			k = 1;
+		}
+			
 	}while( k == 0);
+
 }
+
+
+
