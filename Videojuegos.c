@@ -83,7 +83,8 @@ int main(){
 	}while ( power == 1);
 	
 
-	// Creditos. Es necesario adjuntar el archivo Creditos Videojuegos.txt en la misma carpeta.
+	// Creditos. Es necesario adjuntar el archivo Creditos Videojuegos.txt en la misma carpeta 
+	//Sino, ha de introducirse su dirección en la línea 91.
 
 	system("cls");
 			
