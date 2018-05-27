@@ -8,7 +8,7 @@ ALVARO PEREZ GARCIA:
 Desarrollador en gran parte del juego 3 en Raya.
 
 PABLO LOPEZ REYES:
-Desarrollador en gran parte del juego Pong 
+Desarrollador en gran parte del juego Pong. 
 
 MANUEL TABOADA DA SILVA:
 Asistente operativo en los juegos 3 en Raya y Pong.
