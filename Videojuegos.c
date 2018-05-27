@@ -105,7 +105,6 @@ int main(){
 	system ("pause");
 	return 0;
 }
-}
 //JUEGO DEL TRES EN RAYA
 void tresenralla() {
 	
